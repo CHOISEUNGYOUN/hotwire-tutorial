@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @ticket.comments.create!(comment_params)
     respond_to do |format|
+      format.turbo_stream
       format.html { redirect_to @ticket }
     end
   end
