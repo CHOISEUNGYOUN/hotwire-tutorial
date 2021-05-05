@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :tickets do
     resources :comments, only: [:new, :create]
   end
+  
+  resources :posts
 end

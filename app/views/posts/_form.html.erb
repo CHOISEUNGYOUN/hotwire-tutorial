@@ -1,0 +1,27 @@
+<%= turbo_frame_tag post do %>
+  <%= form_with(model: post, local: true) do |form| %>
+    <% if post.errors.any? %>
+      <div>
+        <ul>
+          <% post.errors.each do |error| %>
+            <li>
+              <h3><%= error.full_message %></h3>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+
+      <%= form.label :body %>
+      <%= form.text_field :body %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+<% end %>
